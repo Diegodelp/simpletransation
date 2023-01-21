@@ -36,8 +36,8 @@ if envio == "Si":
     print(mensajero1.lista_direcciones['Clave Publica'])
     print(mensajero2.lista_direcciones['Clave Publica'])
     selector_destinatario = input("Escribe el Nombre al que quieres enviar: ")
-    if selector_destinatario == "Diego":
-        print("Le enviaras a Diego")
+    if selector_destinatario == mensajero1.lista_direcciones['Clave Publica']:
+        print("Enviaras a: "+ mensajero1.lista_direcciones['Clave Publica'])
         selector_remitente = hashlib.sha256(str(input("Escribe tu Clave Privada: ")).encode()).hexdigest()
         clave_privada = mensajero2.lista_direcciones['Clave Privada']
         if selector_remitente == clave_privada:
@@ -47,8 +47,8 @@ if envio == "Si":
             print("Se ha enviado correctamente")
         else:
             print("La clave es incorrecta")
-    elif selector_destinatario == "Brenda":
-        print("Le enviaras a Brenda")
+    elif selector_destinatario == mensajero2.lista_direcciones['Clave Publica']:
+        print("Enviaras a: "+ mensajero2.lista_direcciones['Clave Publica'])
         selector_remitente = hashlib.sha256(str(input("Escriba su Clave Privada: ")).encode()).hexdigest()
         clave_privada = mensajero1.lista_direcciones['Clave Privada']
         if selector_remitente == clave_privada:
@@ -61,3 +61,5 @@ if envio == "Si":
     else: 
         print("La seleccion es incorrecta")
 print(datos)
+
+
